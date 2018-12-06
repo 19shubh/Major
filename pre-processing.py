@@ -43,7 +43,7 @@ np.random.seed(1234)
 # In[4]:
 
 
-sarcasm_df=pd.read_csv('sarcastic_tweets.csv',sep=',',header=None,usecols=range(1,2),nrows=10000)
+sarcasm_df=pd.read_csv('sarcastic_tweets.csv',sep=',',header=None,usecols=range(1,2),nrows=100)
 
 #file should be in same path as ipynb file
 #sep is by which fields are seperated.
@@ -250,6 +250,12 @@ ran_arr=[x for x in random_df[7]]
 fin_sar=cleanTweets(sar_arr)
 fin_ran=cleanTweets(ran_arr)
 print fin_sar
+
+file = open('processed-tweets', 'w')
+for lines in fin_sar:
+	file.write(str(lines)+'\n')
+file.close()
+
 # In[ ]:
 
 
